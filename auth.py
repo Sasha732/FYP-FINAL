@@ -22,11 +22,11 @@ pwd_ctx = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def hash_password(plain: str) -> str:
-    return pwd_ctx.hash(plain)
+    return pwd_ctx.hash(plain[:72])
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_ctx.verify(plain, hashed)
+    return pwd_ctx.verify(plain[:72], hashed)
 
 
 # ── Input validation ──────────────────────────────────────────────────────────
