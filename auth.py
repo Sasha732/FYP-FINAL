@@ -18,15 +18,15 @@ from database import (
 from config import SMTP_HOST, SMTP_PORT, SMTP_EMAIL, SMTP_PASSWORD
 
 # ── Password hashing context ──────────────────────────────────────────────────
-pwd_ctx = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_ctx = CryptContext(schemes=["argon2"], deprecated="auto")
 
 
 def hash_password(plain: str) -> str:
-    return pwd_ctx.hash(plain[:72])
+    return pwd_ctx.hash(plain)
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_ctx.verify(plain[:72], hashed)
+    return pwd_ctx.verify(plain, hashed)
 
 
 # ── Input validation ──────────────────────────────────────────────────────────

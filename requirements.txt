@@ -1,6 +1,7 @@
 # AuthFlow dependencies
 streamlit>=1.32.0
-passlib[bcrypt]>=1.7.4
+passlib[argon2]>=1.7.4
+argon2-cffi>=21.3.0
 
 # AI Object Detection dependencies
 ultralytics>=8.0.0
